@@ -10,7 +10,7 @@ class FetchBreeds extends DogEvent {}
 class FetchDogsByBreed extends DogEvent {
   final String breed;
 
-  FetchDogsByBreed({required this.breed});
+  FetchDogsByBreed(String newValue, {required this.breed});
 
   @override
   List<Object?> get props => [breed];

@@ -30,3 +30,9 @@ class DogError extends DogState {
   @override
   List<Object?> get props => [message];
 }
+
+class BreedsLoaded extends DogState {
+  final List<String> breeds;
+
+  const BreedsLoaded(this.breeds);
+}

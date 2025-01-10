@@ -9,6 +9,8 @@ class DogBloc extends Bloc<DogEvent, DogState> {
   DogBloc(this.dogRepository) : super(DogInitial()) {
     // Registering the event handler
     on<FetchRandomDogByBreed>(_onFetchRandomDogByBreed);
+    on<FetchBreeds>(_onFetchAllBreeds);
+    on<FetchDogsByBreed>(_onFetchDogsByBreed);
   }
 
   Future<void> _onFetchRandomDogByBreed(
@@ -16,11 +18,37 @@ class DogBloc extends Bloc<DogEvent, DogState> {
     emit(DogLoading());
     try {
       final dog = await dogRepository.getRandomDogByBreed(event.breed);
-      final breeds = await dogRepository.getBreed(event.breed);
+      final breeds = await dogRepository.getBreed();
       emit(DogLoaded(breeds, [dog]));
     } catch (e) {
       emit(DogError(e.toString()));
       //print(e.toString());
     }
   }
+
+  Future<void> _onFetchDogsByBreed(
+      FetchDogsByBreed event, Emitter<DogState> emit) async {
+    emit(DogLoading());
+    try {
+      final dog = await dogRepository.getDogByBreed(event.breed);
+      final breeds = await dogRepository.getBreed();
+      emit(DogLoaded(breeds, dog));
+    } catch (e) {
+      emit(DogError(e.toString()));
+      //print(e.toString());
+    }
+  }
+
+    Future<void> _onFetchAllBreeds(
+      FetchBreeds event, Emitter<DogState> emit) async {
+    emit(DogLoading());
+    try {
+      final breeds = await dogRepository.getBreed();
+      emit(BreedsLoaded(breeds)); // New state for loaded breeds
+    } catch (e) {
+      emit(DogError(e.toString()));
+    }
+  }
+
+
 }

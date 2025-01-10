@@ -15,8 +15,8 @@ class DogRepository {
     return dogService.fetchDogsByBreed(breed);
   }
 
-  Future<List<String>> getBreed(String breed) {
-    return dogService.fetchBreeds(breed);
+  Future<List<String>> getBreed() {
+    return dogService.fetchBreeds();
   }
 
 }

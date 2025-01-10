@@ -5,7 +5,7 @@ import 'package:dog_images_app/models/dog.dart';
 class DogService {
   final String baseUrl = 'https://dog.ceo/api';
 
-  Future<List<String>> fetchBreeds(String breed) async {
+  Future<List<String>> fetchBreeds() async {
     final response = await http.get(Uri.parse('$baseUrl/breeds/list/all'));
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
