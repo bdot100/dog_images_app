@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "305755824007",
+    "project_id": "dog-images-app-d0b48",
+    "storage_bucket": "dog-images-app-d0b48.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305755824007:android:8435fb08a5d868f6d63d22",
+        "android_client_info": {
+          "package_name": "com.example.dog_images_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPTwqZ9fqKgWMCNGhykZQHJncauO9EFZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
